@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChatAppController">
+   <children>
+      <Button fx:id="sendButton" layoutX="481.0" layoutY="345.0" mnemonicParsing="false" onAction="#send" prefHeight="48.0" prefWidth="104.0" text="Send" />
+      <Label layoutX="494.0" layoutY="21.0" text="Online Users" />
+      <TextArea fx:id="messagesArea" layoutX="14.0" layoutY="46.0" prefHeight="282.0" prefWidth="453.0" promptText="Messages" />
+      <TextArea fx:id="messageInput" layoutX="14.0" layoutY="344.0" prefHeight="48.0" prefWidth="453.0" promptText="Input Message" />
+      <TextArea fx:id="onlineUsersArea" layoutX="482.0" layoutY="46.0" prefHeight="282.0" prefWidth="104.0" />
+   </children>
+</AnchorPane>
