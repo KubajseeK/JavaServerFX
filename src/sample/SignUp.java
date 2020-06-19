@@ -53,12 +53,13 @@ public class SignUp {
 
             LoginController controller = loader.getController();
             controller.setMsg(message);
+            controller.statusMessage.setVisible(true);
 
             Stage stage = new Stage();
             Scene scene = new Scene(root1, 600, 400);
             stage.resizableProperty().setValue(Boolean.FALSE);
             stage.setScene(scene);
-            stage.setTitle("Log In");
+            stage.setTitle("Login");
             stage.show();
         }
         catch (IOException e) {

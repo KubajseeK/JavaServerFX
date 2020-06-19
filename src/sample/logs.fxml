@@ -12,7 +12,7 @@
                 <Font size="31.0" />
             </font>
         </Label>
-        <Button fx:id="logins" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" onAction="#getLogInLogs" text="LogIn" />
-        <Button fx:id="logouts" layoutX="207.0" layoutY="52.0" mnemonicParsing="false" onAction="#getLogOutLogs" text="LogOut" />
+        <Button fx:id="logins" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" onAction="#getLogins" text="LogIn" />
+        <Button fx:id="logouts" layoutX="207.0" layoutY="52.0" mnemonicParsing="false" onAction="#getLogouts" text="LogOut" />
     </children>
 </AnchorPane>

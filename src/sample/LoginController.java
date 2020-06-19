@@ -32,7 +32,9 @@ public AnchorPane rootPane;
 public String userLogin;
 public String userPassword;
 
-public void initialize() {}
+public void initialize() {
+    statusMessage.setVisible(false);
+}
 
  /**DONE **/
     public void logIn() throws UnirestException {
@@ -50,6 +52,10 @@ public void initialize() {}
             jsonObject = new JSONObject(response.getBody());
             openApp(jsonObject);
             closeLoginWindow();
+        } else {
+            jsonObject = new JSONObject(response.getBody());
+            statusMessage.setText(jsonObject.getString("error"));
+            statusMessage.setVisible(true);
         }
     }
 

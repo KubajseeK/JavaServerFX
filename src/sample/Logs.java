@@ -19,7 +19,7 @@ public class Logs {
         this.token = token;
     }
 
-    public void getLogInLogs() throws UnirestException {
+    public void getLogins() throws UnirestException {
         logList.getItems().clear();
         Unirest.setTimeouts(0, 0);
         HttpResponse<String> response = Unirest.post("http://localhost:8080/log")
@@ -34,7 +34,7 @@ public class Logs {
         }
     }
 
-    public void getLogOutLogs() throws UnirestException {
+    public void getLogouts() throws UnirestException {
         logList.getItems().clear();
         Unirest.setTimeouts(0, 0);
         HttpResponse<String> response = Unirest.post("http://localhost:8080/log")

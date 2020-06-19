@@ -18,9 +18,9 @@ public class ChatAppController {
     public Pane optionPane;
     public Label userName;
     public Pane usersPane;
-    public ListView<String> userList;
+    public ListView<String> userView;
     public ListView<String> msgList;
-    public ListView<String> usrList;
+    public ListView<String> userList;
     public Button logBtn;
     public Label sendingTo;
     public TextField msgField;
@@ -53,19 +53,19 @@ public class ChatAppController {
             if (login.equals(object.getJSONObject(String.valueOf(i)).getString("login"))){
                 continue;
             }
-            userList.getItems().addAll(object.getJSONObject(String.valueOf(i)).getString("login"));
+            userView.getItems().addAll(object.getJSONObject(String.valueOf(i)).getString("login"));
         }
     }
 
     public void getUser(){
-        user = userList.getSelectionModel().getSelectedItem();
+        user = userView.getSelectionModel().getSelectedItem();
         chooseUserBtn.fire();
-        sendingTo.setText(userList.getSelectionModel().getSelectedItem());
+        sendingTo.setText(userView.getSelectionModel().getSelectedItem());
     }
 
     public void getMessages() throws UnirestException {
         msgList.getItems().clear();
-        usrList.getItems().clear();
+        userList.getItems().clear();
         Unirest.setTimeouts(0, 0);
         HttpResponse<String> response = Unirest.post("http://localhost:8080/messages")
                 .header("Authorization", token)
@@ -76,7 +76,7 @@ public class ChatAppController {
         JSONArray objects = new JSONArray(response.getBody());
         for (int i=0; i<objects.length(); i++){
             msgList.getItems().addAll(objects.getJSONObject(i).getString("message"));
-            usrList.getItems().addAll(objects.getJSONObject(i).getString("from"));
+            userList.getItems().addAll(objects.getJSONObject(i).getString("from"));
         }
     }
 
@@ -110,7 +110,7 @@ public class ChatAppController {
 
             Logs logWindow = loader.getController();
             logWindow.setToken(token);
-            logWindow.getLogInLogs();
+            logWindow.getLogins();
 
             Stage stage = new Stage();
             Scene scene = new Scene(root1, 280, 480);
