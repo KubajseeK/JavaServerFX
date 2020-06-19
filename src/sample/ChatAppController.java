@@ -35,7 +35,6 @@ public class ChatAppController {
     public String pass;
 
     public void initialize() {
-        optionPane.setStyle("-fx-background-color: #8e8e8e");
         chooseUserBtn.setVisible(false);
     }
 
