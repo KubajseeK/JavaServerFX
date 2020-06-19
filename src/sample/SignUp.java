@@ -84,10 +84,10 @@ public class SignUp {
     public void setUserPass(){
         password = userPass.getText();
     }
-    /**DONE**/
+
     public void signUp() throws UnirestException {
-        if (userPass == null || userLogin == null || firstName == null || lastName == null){
-            errorMessage.setText("All fields are mandatory");
+        if (userLogin == null || userPass == null || firstName == null || lastName == null){
+            errorMessage.setText("All fields mandatory.");
             return;
         }
 
@@ -98,9 +98,7 @@ public class SignUp {
                 .asString();
 
         if (response.getStatus() == 400){
-            System.out.println(response.getBody());
-            System.out.println(response.getStatus());
-            System.out.println(fname + " " + lname + " " + login + " " + password);
+           errorMessage.setText(response.getBody());
         }else {
             goBack("Successfully registered");
         }
